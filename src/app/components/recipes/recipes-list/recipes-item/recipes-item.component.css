@@ -1,0 +1,33 @@
+.card {
+  cursor: pointer;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: relative;
+  transition: 0.3s;
+}
+.card img {
+  height: 13rem;
+  transition: transform 1.5s;
+  -webkit-transition: transform 1.5s;
+  -moz-transition: transform 1.5s;
+  -ms-transition: transform 1.5s;
+  -o-transition: transform 1.8s;
+}
+.card:hover {
+  background-color: rgba(40, 167, 69, 0.1);
+}
+/* .card:hover > img {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+} */
+.card i {
+  position: absolute;
+  z-index: 1;
+  left: 20px;
+  top: 10px;
+  background-color: red;
+  color: white;
+} /*# sourceMappingURL=recipes-item.component.css.map */

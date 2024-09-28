@@ -1,0 +1,98 @@
+@import "animate.css";
+.custom-input:focus {
+  outline-color: #28a745;
+}
+
+input[type=text]:focus,
+.uneditable-input:focus {
+  border-color: rgba(126, 239, 104, 0.8);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(126, 239, 104, 0.6);
+  outline: 0 none;
+}
+
+.line {
+  position: relative;
+  text-align: center;
+  display: flex;
+  color: #28a745;
+  justify-content: center;
+  align-items: center;
+}
+.line::before, .line::after {
+  content: "";
+  position: absolute;
+  width: 35%;
+  height: 2.5px;
+  background-color: #28a745;
+  top: 50%;
+  transform: translateX(10px, -50%);
+  -webkit-transform: translateX(10px, -50%);
+  -moz-transform: translateX(10px, -50%);
+  -ms-transform: translateX(10px, -50%);
+  -o-transform: translateX(10px, -50%);
+}
+.line::before {
+  left: 10px;
+}
+.line::after {
+  right: 10px;
+}
+
+@media (min-width: 770px) and (max-width: 991px) {
+  .line::after,
+  .line::before {
+    width: 200px;
+  }
+  .line::after {
+    transform: translateX(30px);
+  }
+  .line::before {
+    transform: translateX(-30px);
+  }
+}
+@media (max-width: 768px) {
+  .line::after,
+  .line::before {
+    width: 94px;
+  }
+  .line::after {
+    transform: translateX(30px);
+  }
+  .line::before {
+    transform: translateX(-30px);
+  }
+}
+@media (max-width: 355px) {
+  .line::after,
+  .line::before {
+    max-width: 74px;
+  }
+  .line::after {
+    transform: translateX(50px);
+  }
+  .line::before {
+    transform: translateX(-50px);
+  }
+}
+@media (max-width: 355px) and (max-width: 278px) {
+  .line::after,
+  .line::before {
+    max-width: 50px;
+  }
+  .line::after {
+    transform: translateX(50px);
+  }
+  .line::before {
+    transform: translateX(-50px);
+  }
+}
+.spinner {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.cards {
+  margin: auto;
+}/*# sourceMappingURL=recipes-list.component.css.map */

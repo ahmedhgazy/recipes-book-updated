@@ -1,0 +1,44 @@
+@mixin center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+}
+
+.form {
+  @include center();
+}
+
+.btn.btn-primary {
+  background-color: #d54215;
+}
+
+h3 {
+  font-family: "Anta", Helvetica, sans-serif;
+  font-size: 28px;
+  line-height: 34px;
+  font-weight: 400;
+
+  vertical-align: baseline;
+  letter-spacing: normal;
+
+  word-spacing: 0px;
+}
+
+// Spacers
+$spacer: 1rem !default;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+  6: $spacer * 6,
+  7: $spacer * 8,
+  8: $spacer * 12,
+) !default;

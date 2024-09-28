@@ -1,0 +1,135 @@
+@mixin center() {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+}
+
+.center {
+  @include center();
+  left: 3px;
+}
+
+.center-img {
+  @include center();
+  left: 4%;
+}
+
+.modal-dialog,
+ng-template {
+  max-width: 1080px;
+}
+
+.center-amount {
+  @include center();
+  left: 0;
+}
+@media (max-width: 700px) {
+  form img,
+  .preview {
+    visibility: hidden;
+  }
+}
+
+/*
+* ************************payment styling*************************
+*/
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap");
+
+app-payment {
+  font-family: "Montserrat", sans-serif;
+}
+
+app-payment body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #0c4160;
+  padding: 30px 10px;
+}
+
+app-payment .card {
+  max-width: 500px;
+  margin: auto;
+  color: black;
+  border-radius: 20px;
+}
+
+app-payment p {
+  margin: 0;
+}
+
+app-payment .container .h8 {
+  font-size: 30px;
+  font-weight: 800;
+  text-align: center;
+}
+
+// app-payment .btn.btn-primary {
+//   width: 20%;
+//   height: 40px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   padding: 0 8px;
+//   background: linear-gradient(to right, #77a1d3 0%, #79cbca 51%, #77a1d3 100%);
+//   border: none;
+//   transition: background 0.5s;
+//   background-size: 200% auto;
+
+//   &:hover {
+//     background-position: right center;
+//     // color: #fff;
+//     text-decoration: none;
+//   }
+
+//   &:hover .fas.fa-arrow-right {
+//     transform: translateX(15px);
+//     transition: transform 0.2s ease-in;
+//   }
+// }
+
+app-payment .form-control {
+  // color: white;
+  background-color: #eee;
+  border: 2px solid transparent;
+  height: 60px;
+  padding-left: 20px;
+  vertical-align: middle;
+  caret-color: #000;
+  &:focus {
+    // background-color: #0c4160;
+    border: 2px solid #2d4dda;
+    box-shadow: none;
+  }
+}
+
+::-webkit-input-placeholder {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+::-moz-placeholder {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+:-ms-input-placeholder {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+::-ms-input-placeholder {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+app-payment .text,
+::placeholder {
+  font-size: 14px;
+  font-weight: 600;
+}

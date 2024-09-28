@@ -1,0 +1,30 @@
+<div class="card p-0 rounded-3">
+  <i
+    appBetterHighlight
+    class="far fa-heart rounded-5 p-2"
+    (click)="addToFav()"
+  ></i>
+
+  <img
+    [src]="recipeItem.imgPath"
+    style="width: fit-content"
+    class="img-fluid"
+    alt="Responsive image"
+  />
+  <div class="card-body">
+    <div
+      class="d-flex justify-content-between align-items-center text-center mb-3"
+    >
+      <h5 class="card-title">{{ recipeItem.name }}</h5>
+      <span class="card-title rounded-pill fw-bold badge bg-danger">{{
+        "$" + recipeItem.price
+      }}</span>
+    </div>
+
+    <div class="d-grid">
+      <button class="butn px-2 rounded-4" (click)="navToDetails()">
+        Show details
+      </button>
+    </div>
+  </div>
+</div>

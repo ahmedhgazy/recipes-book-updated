@@ -1,0 +1,187 @@
+<div class="container">
+  <!-- ********************************************* -->
+  <!--* Dealing with recipes and its ingredients -->
+  <!-- ********************************************* -->
+  <div class="row">
+    <div class="col-12">
+      <p *ngIf="recipes.length == 0">there is no items in the list</p>
+      <form #form="ngForm" (ngSubmit)="onSubmit()" *ngIf="recipes.length != 0">
+        <p class="h3 mb-3">Recipes</p>
+        <ul class="list-group">
+          <li
+            width="100%"
+            *ngFor="let recipe of recipes; let i = index"
+            class="list-group-item d-flex justify-content-between align-items-center col-12 hstack gap-2"
+          >
+            <p class="center">{{ recipe.name }}</p>
+            <div class="img">
+              <img
+                [src]="recipe.imgPath"
+                alt=""
+                width="70px "
+                class="rounded-2 center-img offset-3 ul-img"
+              />
+            </div>
+            <input
+              class="form-control offset-4 amount"
+              style="width: 100px"
+              required
+              [(ngModel)]="recipe.amount"
+              placeholder="amount"
+              type="number"
+              name="amount{{ i }}"
+              pattern="^[1-9]+[0-9]*$"
+              (input)="calcTotalCost()"
+              width="30px"
+            />
+            <button
+              type="button"
+              class="btn btn-outline-success preview"
+              (click)="openModal(recipe, template)"
+            >
+              Preview
+            </button>
+            <button
+              class="btn btn-danger"
+              (click)="removeItem(i)"
+              type="button"
+            >
+              X
+            </button>
+            <!-- *Modal -->
+            <!-- Modal Template -->
+            <ng-template #template class="modal-dialog">
+              <div class="modal-header">
+                <h4 class="modal-title pull-left">{{ recipe.name }}</h4>
+                <button
+                  type="button"
+                  class="btn-close close pull-right"
+                  aria-label="Close"
+                  (click)="modalRef?.hide()"
+                >
+                  <span aria-hidden="true" class="visually-hidden"
+                    >&times;</span
+                  >
+                </button>
+              </div>
+              <div class="modal-body">
+                <section
+                  class="mt-2 mb-3 hstack gap-3 d-flex align-items-center"
+                >
+                  <h4 class="float-strat">Ingredients :</h4>
+                  <img
+                    [src]="recipe.imgPath"
+                    class="float-end offset-5 rounded-3"
+                    width="80px"
+                    alt="responsive-image"
+                  />
+                </section>
+                <section>
+                  <ul class="list-group">
+                    <li
+                      class="li list-group-item"
+                      *ngFor="let ingredient of recipe.ingredients"
+                    >
+                      {{ ingredient.name }} | {{ ingredient.amount }}
+                    </li>
+                  </ul>
+                </section>
+                <p class="mt-3">
+                  Recipe price :
+                  <span class="badge bg-danger"> ${{ recipe.price }} </span>
+                </p>
+              </div>
+            </ng-template>
+            <!-- *Modal -->
+          </li>
+          <li class="list-group-item">
+            <span class="rounded-4">Total :{{ totalCost }} </span>
+          </li>
+        </ul>
+        <button
+          [disabled]="!form.valid"
+          class="btn btn-success mt-3"
+          type="submit"
+          routerLink="payment"
+        >
+          Go to payment
+        </button>
+      </form>
+    </div>
+  </div>
+  <div class="row mb-5 mt-4" *ngIf="pay">
+    <div class="col-12">
+      <app-payment class="mb-5" *ngIf="recipes.length != 0">
+        <div class="container p-0">
+          <div class="card px-4">
+            <p class="h8 py-3">Payment Details</p>
+            <div class="row gx-3">
+              <form #form="ngForm" (ngSubmit)="onSubmitPay(form)">
+                <div class="col-12">
+                  <div class="form-group d-flex flex-column">
+                    <p class="text mb-1">Name</p>
+                    <input
+                      class="form-control mb-3"
+                      type="text"
+                      required
+                      ngModel
+                      name="userName"
+                      placeholder="Name"
+                    />
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group d-flex flex-column">
+                    <p class="text mb-1">email</p>
+                    <input
+                      class="form-control mb-3"
+                      placeholder="email"
+                      required
+                      ngModel
+                      name="email"
+                      email
+                      type="email"
+                    />
+                  </div>
+                </div>
+                <div class="col-12">
+                  <div class="form-group d-flex flex-column">
+                    <p class="text mb-1">Card number</p>
+                    <input
+                      class="form-control mb-3 pt-2"
+                      type="password"
+                      placeholder="card"
+                      ngModel
+                      name="cardNumber"
+                    />
+                  </div>
+                </div>
+                <div
+                  class="col-12 d-flex justify-content-between align-items-center"
+                >
+                  <button type="submit" class="btn btn-primary rounded-3 mb-3">
+                    Pay ${{ totalCost }}
+                  </button>
+
+                  <button
+                    type="button"
+                    (click)="cancelPay()"
+                    class="btn btn-primary rounded-3 mb-3"
+                  >
+                    Cancel Payment
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </app-payment>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

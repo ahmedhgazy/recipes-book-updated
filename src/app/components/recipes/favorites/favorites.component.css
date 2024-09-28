@@ -1,0 +1,19 @@
+.card {
+  cursor: pointer;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.card img {
+  height: 13rem;
+  transition: transform 1.5s;
+  -webkit-transition: transform 1.5s;
+  -moz-transition: transform 1.5s;
+  -ms-transition: transform 1.5s;
+  -o-transition: transform 1.5s;
+}
+.card:hover {
+  background-color: rgba(40, 167, 69, 0.2);
+}
+.card:hover > img:hover {
+  transform: rotateY(180deg);
+}/*# sourceMappingURL=favorites.component.css.map */

@@ -1,0 +1,44 @@
+.card {
+  cursor: pointer;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  position: relative;
+  transition: transform 0.3s;
+  border: 0;
+  background-color: transparent;
+  box-shadow: 0 0 1px #3c433c;
+  border-radius: 5px !important;
+  overflow: hidden;
+  img {
+    height: 13rem;
+    transition: transform 1.5s;
+    -webkit-transition: transform 1.5s;
+    -moz-transition: transform 1.5s;
+    -ms-transition: transform 1.5s;
+    -o-transition: transform 1.8s;
+  }
+
+  &:hover {
+    // background-color: rgba(40, 167, 69, 0.1);
+    transform: translateY(-10px);
+    box-shadow: 0 2px 15px rgb(0, 0, 0, 20%);
+  }
+  i {
+    position: absolute;
+    z-index: 1;
+    left: 20px;
+    top: 10px;
+    // color: red;
+    background-color: red;
+    color: white;
+  }
+}
+
+.butn {
+  padding: 5px 10px;
+  background: linear-gradient(135deg, #40e495, #30dd8a, #2bb673) !important;
+  border: 0;
+  outline: none;
+  color: #fff;
+}

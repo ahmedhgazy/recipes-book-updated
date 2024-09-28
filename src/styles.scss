@@ -1,0 +1,76 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: "Source Sans 3", sans-serif;
+
+  a {
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+  }
+}
+
+body {
+  font-size: 14px;
+  font-family: "Poppins", sans-serif;
+}
+
+span {
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  cursor: pointer;
+}
+span:hover {
+  transform: scale(1.5);
+  -webkit-transform: scale(1.5);
+  -moz-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  -o-transform: scale(1.5);
+}
+
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+
+@media (max-width: 767px) {
+  .card {
+    max-width: 24rem;
+    margin: auto;
+  }
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.btn.btn-success {
+  background: linear-gradient(135deg, #40e495, #30dd8a, #2bb673) !important;
+  border: 0;
+  outline: none;
+}
+
+.btn.btn-danger {
+  background: linear-gradient(135deg, #fc6076, #e75516) !important;
+  border: 0;
+  outline: none;
+}
+
+span {
+  background: linear-gradient(135deg, #fc6076, #e75516) !important;
+}
+
+/* Importing Bootstrap SCSS file. */
+@import "bootstrap/scss/bootstrap";
+
+

@@ -1,0 +1,22 @@
+.card {
+  cursor: pointer;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  transition: transform 0.3s;
+
+  img {
+    height: 13rem;
+    transition: transform 1.5s;
+    -webkit-transition: transform 1.5s;
+    -moz-transition: transform 1.5s;
+    -ms-transition: transform 1.5s;
+    -o-transition: transform 1.5s;
+  }
+
+  &:hover {
+    background-color: rgba(40, 167, 69, 0.2);
+    transform: translateY(-10px);
+    box-shadow: 0 2px 15px rgb(0, 0, 0, 20%);
+  }
+}

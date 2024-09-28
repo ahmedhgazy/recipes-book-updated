@@ -1,0 +1,92 @@
+<section class="details">
+  <div class="container">
+    <div class="row" *ngIf="recipe">
+      <div class="col-12 col-md-5">
+        <div class="row">
+          <div class="col-12">
+            <div class="card p-1 rounded-3 mt-3 ms-2">
+              <img
+                [src]="recipe.imgPath"
+                width="fit-content"
+                class="card-img-top img-fluid"
+                alt=""
+              />
+              <div class="card-body">
+                <div
+                  class="d-flex justify-content-between align-items-center text-center"
+                >
+                  <!-- ?End of DropDown -->
+                  <h4>{{ recipe.name }}</h4>
+                  <span class="card-title h2 rounded-pill badge bg-danger">
+                    {{ "$" + recipe.price }}
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 mt-4 mb-3">
+              <h5 class="ms-3 mb-3 fw-bold">{{ recipe.name }} Ingredients :</h5>
+
+              <ul class="">
+                <li
+                  border-0
+                  class="rounded ms-3"
+                  *ngFor="let ingredient of recipe.ingredients"
+                >
+                  {{ ingredient.name + "-" + ingredient.amount }}
+                </li>
+              </ul>
+              <!-- <ul class="list-group vstack gap-2">
+                <li
+                  border-0
+                  class="list-group-item rounded ms-3"
+                  *ngFor="let ingredient of recipe.ingredients"
+                >
+                  {{ ingredient.name + "-" + ingredient.amount }}
+                </li>
+              </ul> -->
+              <p *ngIf="recipe.ingredients.length < 1">
+                there is no ingredients for this recipe
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--?Ingredients  -->
+      <div class="col-12 col-md-7">
+        <div class="row">
+          <div class="col-12 mt-4 ms-2">
+            <h5 class="fw-bold">Description :</h5>
+            <p class="ms-2">{{ recipe.desc }}</p>
+          </div>
+        </div>
+        <div class="row mb-3">
+          <div class="col-md-12 ms-2 gap-2 d-flex align-items-center">
+            <button class="btn btn-primary" [routerLink]="['edit']">
+              Edit recipe
+            </button>
+            <button class="btn btn-danger" (click)="deleteRecipe()">
+              Delete recipe
+            </button>
+            <button class="btn btn-success" (click)="ToShoppingList()">
+              Add To cart
+            </button>
+          </div>
+          <div class="col-12 mt-3 mb-1" *ngIf="showAlert">
+            <div
+              class="alert alert-success alert-dismissible fade show"
+              role="alert"
+            >
+              Recipe added successfully to cart ✔
+              <button
+                type="button"
+                class="btn-close"
+                (click)="cancelAlert()"
+              ></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

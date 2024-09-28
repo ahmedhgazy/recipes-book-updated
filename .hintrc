@@ -1,0 +1,14 @@
+{
+  "extends": [
+    "development"
+  ],
+  "hints": {
+    "typescript-config/strict": "off",
+    "axe/name-role-value": "off",
+    "css-prefix-order": "off",
+    "axe/forms": "off",
+    "no-inline-styles": "off",
+    "disown-opener": "off",
+    "axe/text-alternatives": "off"
+  }
+}
